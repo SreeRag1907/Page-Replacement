@@ -505,6 +505,28 @@ const PageReplacementVisualizer = () => {
                 </div>
               </div>
             </div>
+
+ {/* Hit and Fault Ratios */}
+<div className="grid grid-cols-2 gap-4 mt-6">
+  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+    <div className="text-sm text-gray-500 mb-1">Hit Ratio</div>
+    <div className="text-2xl font-bold text-blue-600">
+      {steps.length > 0 && currentStep === steps.length - 1
+        ? (pageHits + pageFaults > 0 ? (pageHits / (pageHits + pageFaults)).toFixed(2) : "0.00")
+        : "0.00"}
+    </div>
+    <div className="text-sm text-gray-500 mt-1">Formula: Hits / (Hits + Faults)</div>
+  </div>
+  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+    <div className="text-sm text-gray-500 mb-1">Fault Ratio</div>
+    <div className="text-2xl font-bold text-yellow-600">
+      {steps.length > 0 && currentStep === steps.length - 1
+        ? (pageHits + pageFaults > 0 ? (pageFaults / (pageHits + pageFaults)).toFixed(2) : "0.00")
+        : "0.00"}
+    </div>
+    <div className="text-sm text-gray-500 mt-1">Formula: Faults / (Hits + Faults)</div>
+  </div>
+</div>
           </CardContent>
         </Card>
       )}
